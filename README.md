@@ -11,5 +11,9 @@ The system involved a simple chat front end which is going to send the data for 
 ## Astra DB tool not working chat with the team at astra. Its a fault in their code.
 ![image](https://github.com/user-attachments/assets/3bdf2819-9f49-4960-bd56-5ee8b261346c)
 
+## Lang flow diagram
+![image](https://github.com/user-attachments/assets/3de745a3-961b-4003-bf14-81e1c745d550)
+
+
 
 
