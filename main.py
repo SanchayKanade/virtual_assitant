@@ -6,11 +6,11 @@ import streamlit as st
 
 load_dotenv()
 
-BASE_API_URL = 
-LANGFLOW_ID = 
-FLOW_ID = 
+BASE_API_URL = "https://api.langflow.astra.datastax.com"
+LANGFLOW_ID = "a75942c7-6a21-4dc6-a228-936249005e2d"
+FLOW_ID = "9552fb46-7f4c-4ab9-9480-648300514980"
 APPLICATION_TOKEN = os.environ.get("API_TOKEN")
-ENDPOINT = 
+ENDPOINT = "customer" # The endpoint name of the flow
 
 
 def run_flow(message: str) -> dict:
@@ -42,31 +42,31 @@ def run_flow(message: str) -> dict:
         raise Exception(f"API call failed with status {response.status_code}: {response.text}")
 
 
-# def main():
-#     st.title("Chat Interface")
+def main():
+    st.title("Chat Interface")
     
-#     message = st.text_area("Message", placeholder="Ask something...")
-#     print(message)
-#     if st.button("Run Flow"):
-#         if not message.strip():
-#             st.error("Please enter a message")
-#             return
+    message = st.text_area("Message", placeholder="Ask something...")
+    print(message)
+    if st.button("Run Flow"):
+        if not message.strip():
+            st.error("Please enter a message")
+            return
     
-#         try:
-#             with st.spinner("Running flow..."):
-#                 print("Calling api function")
-#                 response = run_flow(message)
-#                 print(response)
+        try:
+            with st.spinner("Running flow..."):
+                print("Calling api function")
+                response = run_flow(message)
+                print(response)
 
-#             response = response["outputs"][0]["outputs"][0]["results"]["message"]["text"]
-#             print(response)
-#             st.markdown(response)
-#         except Exception as e:
-#             st.error(str(e))
+            response = response["outputs"][0]["outputs"][0]["results"]["message"]["text"]
+            print(response)
+            st.markdown(response)
+        except Exception as e:
+            st.error(str(e))
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
 
 # Simple testing
-result = run_flow("What are the shipment times?")
-print(result["outputs"][0]["outputs"][0]["results"]["message"]["text"])
+# result = run_flow("What are the shipment times?")
+# print(result["outputs"][0]["outputs"][0]["results"]["message"]["text"])
